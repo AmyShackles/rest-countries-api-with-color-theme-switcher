@@ -6,9 +6,8 @@ import styled from "styled-components";
 const GridDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  /* This is better for small screens, once min() is better supported */
-  /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
-  grid-gap: 1rem;
+  grid-gap: 30px;
+  justify-items: center;
 `;
 
 const Countries = () => {

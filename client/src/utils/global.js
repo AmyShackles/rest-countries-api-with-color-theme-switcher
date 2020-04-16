@@ -23,9 +23,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.inputField};
   }
   main {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+    margin: 20px 35px;
   }
   .card {
     background-color: ${({ theme }) => theme.cards};
@@ -35,5 +33,8 @@ export const GlobalStyles = createGlobalStyle`
   }
   .details {
     font-size: 16px;
+  }
+  header button {
+    background-color: ${({ theme }) => theme.toggleButton};
   }
 `;

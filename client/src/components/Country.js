@@ -1,8 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 
+const FlexGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 const Country = ({ flag, name, region, population, capital }) => {
   return (
-    <>
+    <FlexGrid>
       <img src={flag} alt={`Flag for ${name}`} width="300" height="150" />
       <h1>{name}</h1>
       <h2>
@@ -14,7 +20,7 @@ const Country = ({ flag, name, region, population, capital }) => {
       <h2>
         <b>Capital:</b> {capital}
       </h2>
-    </>
+    </FlexGrid>
   );
 };
 

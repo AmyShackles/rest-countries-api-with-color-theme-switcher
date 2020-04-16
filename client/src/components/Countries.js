@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Country } from "./Country.js";
 
 const Countries = () => {
   const [countries, setCountries] = React.useState([]);
@@ -28,19 +29,18 @@ const Countries = () => {
   }, []);
 
   return (
-    <ul>
+    <>
       {countries.map((country, index) => (
-        <li key={index}>
-          <ul>
-            <img src={country.flag} alt={`Flag for ${country.name}`} />
-            <h1>{country.name}</h1>
-            <h2>Population: {country.population}</h2>
-            <h2>Region: {country.region}</h2>
-            <h2>Capital: {country.capital}</h2>
-          </ul>
-        </li>
+        <Country
+          key={index}
+          flag={country.flag}
+          name={country.name}
+          population={country.population}
+          region={country.region}
+          capital={country.capital}
+        />
       ))}
-    </ul>
+    </>
   );
 };
 

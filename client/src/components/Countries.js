@@ -1,6 +1,15 @@
 import React from "react";
 import axios from "axios";
 import { Country } from "./Country.js";
+import styled from "styled-components";
+
+const GridDiv = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* This is better for small screens, once min() is better supported */
+  /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+  grid-gap: 1rem;
+`;
 
 const Countries = () => {
   const [countries, setCountries] = React.useState([]);
@@ -29,7 +38,7 @@ const Countries = () => {
   }, []);
 
   return (
-    <>
+    <GridDiv>
       {countries.map((country, index) => (
         <Country
           key={index}
@@ -40,7 +49,7 @@ const Countries = () => {
           capital={country.capital}
         />
       ))}
-    </>
+    </GridDiv>
   );
 };
 

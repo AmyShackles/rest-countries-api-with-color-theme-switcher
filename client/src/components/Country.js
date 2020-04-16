@@ -4,24 +4,36 @@ import styled from "styled-components";
 const FlexGrid = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 300px;
-  font-size: 14px;
+  & h2 {
+    font-size: 18px;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+  & p {
+    font-size: 14px;
+    margin: 1px;
+    padding-left: 20px;
+  }
+  & p:last-of-type {
+    padding-bottom: 20px;
+  }
 `;
 const Country = ({ flag, name, region, population, capital }) => {
   return (
     <FlexGrid className="card">
       <img src={flag} alt={`Flag for ${name}`} width="300" height="150" />
-      <h1>{name}</h1>
-      <h2>
+      <h2>{name}</h2>
+      <p>
         <b>Population:</b> {population}
-      </h2>
-      <h2>
+      </p>
+      <p>
         <b>Region:</b> {region}
-      </h2>
-      <h2>
+      </p>
+      <p>
         <b>Capital:</b> {capital}
-      </h2>
+      </p>
     </FlexGrid>
   );
 };

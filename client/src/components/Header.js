@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { DarkModeButton } from "./DarkModeButton.js";
-import { LightModeButton } from "./LightModeButton.js";
 
 const HeaderDiv = styled.div`
   width: 100vw;
@@ -10,7 +9,7 @@ const HeaderDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
+  padding-left: 83px;
   box-shadow: ${({ themeString }) =>
     themeString === "light" ? `0px 3px 200px 45px #ededed;` : `none`};
   border-bottom: ${({ themeString }) =>
@@ -26,11 +25,7 @@ const Header = ({ toggleTheme, theme }) => {
     <header role="banner">
       <HeaderDiv themeString={theme}>
         <h1>Where in the world?</h1>
-        {theme === "light" ? (
-          <DarkModeButton toggleTheme={toggleTheme} />
-        ) : (
-          <LightModeButton toggleTheme={toggleTheme} />
-        )}
+        <DarkModeButton toggleTheme={toggleTheme} />
       </HeaderDiv>
     </header>
   );

@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   font-weight: 600;
   position: absolute;
   top: 1px;
-  right: 24px;
+  right: 0;
   width: 266px;
 `;
 const DarkModeButton = ({ toggleTheme }) => {

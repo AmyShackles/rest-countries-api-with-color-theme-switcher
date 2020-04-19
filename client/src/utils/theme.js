@@ -1,4 +1,5 @@
 const lightTheme = {
+  type: "light",
   text: `hsl(200, 15%, 8%)`,
   inputField: `hsl(0, 0%, 52%)`,
   backgroundColor: `hsl(0, 0%, 98%)`,
@@ -7,6 +8,7 @@ const lightTheme = {
 };
 
 const darkTheme = {
+  type: "dark",
   cards: `hsl(209, 23%, 22%)`,
   text: `hsl(0, 0%, 100%)`,
   backgroundColor: `hsl(207, 26%, 17%)`,

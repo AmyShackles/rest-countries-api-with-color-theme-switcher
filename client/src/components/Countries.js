@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { Country } from "./Country.js";
+import { Filter } from "./Filter.js";
 import styled from "styled-components";
 
 const GridDiv = styled.div`
+  margin-top: 94px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  grid-gap: 60px;
   justify-items: center;
 `;
 
@@ -37,18 +39,21 @@ const Countries = () => {
   }, []);
 
   return (
-    <GridDiv>
-      {countries.map((country, index) => (
-        <Country
-          key={index}
-          flag={country.flag}
-          name={country.name}
-          population={country.population}
-          region={country.region}
-          capital={country.capital}
-        />
-      ))}
-    </GridDiv>
+    <>
+      <Filter countries={countries} setCountries={setCountries} />
+      <GridDiv>
+        {countries.map((country, index) => (
+          <Country
+            key={index}
+            flag={country.flag}
+            name={country.name}
+            population={country.population}
+            region={country.region}
+            capital={country.capital}
+          />
+        ))}
+      </GridDiv>
+    </>
   );
 };
 

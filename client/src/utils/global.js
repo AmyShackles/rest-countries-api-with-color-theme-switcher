@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.inputField};
   }
   main {
-    margin: 20px 35px;
+    margin: 20px 70px;
   }
   .card {
     background-color: ${({ theme }) => theme.cards};

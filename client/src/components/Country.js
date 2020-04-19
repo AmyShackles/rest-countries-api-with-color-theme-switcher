@@ -5,7 +5,9 @@ const FlexGrid = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 300px;
+  width: 265px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
   & h2 {
     font-size: 18px;
     padding-left: 20px;
@@ -14,10 +16,15 @@ const FlexGrid = styled.div`
   & p {
     font-size: 14px;
     margin: 1px;
+    line-height: 22px;
     padding-left: 20px;
   }
   & p:last-of-type {
     padding-bottom: 20px;
+  }
+  & img {
+    width: 265px;
+    height: 160px;
   }
 `;
 const Country = ({ flag, name, region, population, capital }) => {

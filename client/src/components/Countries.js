@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { Country } from "./Country.js";
-import { Filter } from "./Filter.js";
+import { SearchFilter } from "./SearchFilter.js";
 import styled from "styled-components";
 
 const GridDiv = styled.div`
-  margin-top: 94px;
+  margin-top: 45px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
   grid-gap: 60px;
@@ -40,7 +40,7 @@ const Countries = () => {
 
   return (
     <>
-      <Filter countries={countries} setCountries={setCountries} />
+      <SearchFilter countries={countries} setCountries={setCountries} />
       <GridDiv>
         {countries.map((country, index) => (
           <Country

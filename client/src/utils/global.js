@@ -20,10 +20,17 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.25s linear;
   }
   input {
-    background-color: ${({ theme }) => theme.inputField};
+    background-color: ${({ theme }) => theme.cards};
+    border: none;
   }
   main {
     margin: 20px 70px;
+  }
+  svg path {
+    stroke: ${({ theme }) => theme.text}
+  }
+  svg line {
+    stroke: ${({ theme }) => theme.text}
   }
   .card {
     background-color: ${({ theme }) => theme.cards};

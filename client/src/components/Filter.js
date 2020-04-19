@@ -39,8 +39,8 @@ const Filter = ({ countries, setCountries }) => {
     }),
     container: (provided, state) => ({
       ...provided,
-      width: "33%",
-      right: 0
+      width: "200px",
+      marginRight: "10px"
     }),
     control: (provided, state) => ({
       ...provided,
@@ -54,6 +54,11 @@ const Filter = ({ countries, setCountries }) => {
       "&:hover": {
         borderColor: "#BABABA"
       }
+    }),
+    valueContainer: (provided, state) => ({
+      ...provided,
+      height: "60px",
+      paddingLeft: "20px"
     })
   };
   React.useEffect(() => {

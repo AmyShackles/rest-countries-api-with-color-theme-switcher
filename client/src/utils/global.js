@@ -20,6 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.25s linear;
   }
   input {
+    color: ${({ theme }) => theme.text};
     background-color: ${({ theme }) => theme.cards};
     border: none;
   }

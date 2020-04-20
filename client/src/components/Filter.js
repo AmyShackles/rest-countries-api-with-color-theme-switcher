@@ -1,6 +1,5 @@
 import React from "react";
 import { regions } from "../utils/regions.js";
-import axios from "axios";
 import Select from "react-select";
 import { ThemeContext } from "styled-components";
 
@@ -63,25 +62,22 @@ const Filter = ({ countries, setCountries }) => {
   };
   React.useEffect(() => {
     if (region !== "") {
-      const fetchData = async () => {
-        axios
-          .get(`https://restcountries.eu/rest/v2/region/${region}`)
-          .then(res => {
-            setCountries(
-              res.data.map(country => {
-                return {
-                  flag: country.flag,
-                  name: country.name,
-                  population: country.population,
-                  region: country.region,
-                  capital: country.capital
-                };
-              })
-            );
-          })
-          .catch(err => console.error(err));
-      };
-      fetchData();
+      fetch(`https://restcountries.eu/rest/v2/region/${region}`)
+        .then(res => res.json())
+        .then(data => {
+          setCountries(
+            data.map(country => {
+              return {
+                flag: country.flag,
+                name: country.name,
+                population: country.population,
+                region: country.region,
+                capital: country.capital
+              };
+            })
+          );
+        })
+        .catch(err => console.error(err));
     }
   }, [region, setCountries]);
 

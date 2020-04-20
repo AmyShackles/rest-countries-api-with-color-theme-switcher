@@ -14,7 +14,10 @@ const StyledSearchInput = styled.input`
   width: 100%;
   padding-left: 75px;
 `;
-const Search = props => {
+const Search = ({ setCountries, searchText, setSearchText }) => {
+  const handleChange = event => {
+    setSearchText(event.target.value);
+  };
   return (
     <StyledSearch>
       <SearchIcon
@@ -25,6 +28,7 @@ const Search = props => {
         placeholder="Search for a country..."
         id="searchBox"
         type="text"
+        onChange={handleChange}
       />
     </StyledSearch>
   );

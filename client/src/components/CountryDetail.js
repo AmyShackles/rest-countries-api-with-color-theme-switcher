@@ -74,7 +74,6 @@ const CountryDetail = (props) => {
     fetch(`https://restcountries.eu/rest/v2/name/${props.name}`)
       .then((res) => res.json())
       .then(([country]) => {
-        console.log("Country", country);
         setCountry({
           flag: country.flag,
           name: country.name,

@@ -16,6 +16,9 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: space-around;
   padding: 0 10px;
+  @media (max-width: 1250px) {
+    margin-top: 0;
+  }
 `;
 const BackButton = ({ goBack }) => {
   return (

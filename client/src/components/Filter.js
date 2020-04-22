@@ -8,14 +8,6 @@ const Filter = ({ countries, setCountries }) => {
   const applicationTheme = React.useContext(ThemeContext);
 
   const customStyles = {
-    // menu: (provided, state) => {
-    //   ...provided} console.log("Provided menu style", provided),
-    // control: (provided, state) => console.log("Provided control style", provided),
-    // container: (provided, state) =>
-    //   console.log("Provided container style", provided),
-    // menuList: (provided, state) =>
-    //   console.log("Provided menuList style", provided),
-    // option: (provided, state) => console.log("Provided optionstyle", provided),
     menu: (provided, state) => ({
       ...provided,
       marginTop: 0,

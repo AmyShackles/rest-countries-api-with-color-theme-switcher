@@ -165,14 +165,17 @@ const CountryDetail = (props) => {
               <span style={{ marginRight: "15px" }}>
                 <b>Border Countries:</b>
               </span>
-              {borders &&
+              {borders && borders.length > 0 ? (
                 borders.map((country, index) => {
                   return (
                     <StyledCountryButton key={index} to={`/country/${country}`}>
                       {country}
                     </StyledCountryButton>
                   );
-                })}
+                })
+              ) : (
+                <p>No bordering countries</p>
+              )}
             </StyledCountryButtonWrapper>
           </div>
         </StyledColumns>

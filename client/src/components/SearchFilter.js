@@ -9,6 +9,8 @@ const StyledSearchFilter = styled.div`
   margin-top: 45px;
   @media (max-width: 1250px) {
     flex-direction: column;
+    width: 90%;
+    margin: auto;
   }
 `;
 const SearchFilter = ({

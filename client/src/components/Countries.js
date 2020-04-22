@@ -12,6 +12,12 @@ const GridDiv = styled.div`
   justify-items: center;
 `;
 
+const StyledContainer = styled.div`
+  margin: 0 70px;
+  @media (max-width: 1250px) {
+    margin: auto;
+  }
+`;
 const Countries = () => {
   const [countries, setCountries] = React.useState([]);
   const [searchText, setSearchText] = React.useState("");
@@ -59,7 +65,7 @@ const Countries = () => {
   }, [setCountries, debouncedSearchText]);
 
   return (
-    <>
+    <StyledContainer>
       <SearchFilter
         countries={countries}
         setCountries={setCountries}
@@ -82,7 +88,7 @@ const Countries = () => {
           ))}
         </GridDiv>
       )}
-    </>
+    </StyledContainer>
   );
 };
 

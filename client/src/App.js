@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Header toggleTheme={toggleTheme} theme={theme} />
+        <Header toggleTheme={toggleTheme} />
         <main role="main">
           <Router>
             <Countries path="/" />

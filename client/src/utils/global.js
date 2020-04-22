@@ -7,7 +7,9 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  #root {
+    width: 100%;
+    height: 100%;
     align-items: center;
     background: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.text};
@@ -25,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
   }
   main {
+    width: 100%;
     margin: 20px 70px;
   }
   svg path {

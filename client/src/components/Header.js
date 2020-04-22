@@ -2,32 +2,37 @@ import React from "react";
 import styled from "styled-components";
 import { DarkModeButton } from "./DarkModeButton.js";
 
-const HeaderDiv = styled.div`
-  width: 100vw;
-  background-color: ${({ theme }) => theme.cards};
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 83px;
-  box-shadow: ${({ themeString }) =>
-    themeString === "light" ? `0px 3px 200px 45px #ededed;` : `none`};
-  border-bottom: ${({ themeString }) =>
-    themeString === "light" ? `4px solid #ededed;` : `1px solid #2b2b2b`};
-  & h1 {
-    font-size: 24px;
-    text-align: center;
+const HeaderDiv = styled.header`
+  width: 100%;
+  & div#header {
+    background-color: ${({ theme }) => theme.cards};
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-left: 84px;
+    }
+    @media (max-width: 1250px) {
+      height: 62px;
+      & h1 {
+        font-size: 16px;
+        margin-left: 10px;
+      }
+    }
   }
 `;
 
-const Header = ({ toggleTheme, theme }) => {
+const Header = ({ toggleTheme }) => {
   return (
-    <header role="banner">
-      <HeaderDiv themeString={theme}>
+    <HeaderDiv role="banner">
+      <div id="header">
         <h1>Where in the world?</h1>
         <DarkModeButton toggleTheme={toggleTheme} />
-      </HeaderDiv>
-    </header>
+      </div>
+    </HeaderDiv>
   );
 };
 export { Header };

@@ -15,37 +15,46 @@ const GridDiv = styled.div`
 const Countries = () => {
   const [countries, setCountries] = React.useState([]);
   const [searchText, setSearchText] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
   const debouncedSearchText = useDebounce(searchText, 500);
 
   React.useEffect(() => {
-    if (debouncedSearchText) {
+    if (searchText && debouncedSearchText) {
       fetch(`https://restcountries.eu/rest/v2/name/${debouncedSearchText}`)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => {
+          if (res.status === 404) {
+            setErrorMessage("No countries found");
+            return;
+          } else {
+            setErrorMessage("");
+            return res.json();
+          }
+        })
+        .then((data) => {
           if (data && data.length) {
             setCountries(data);
           } else {
             setCountries([]);
           }
         })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     } else {
       fetch("https://restcountries.eu/rest/v2/all")
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           setCountries(
-            data.map(country => {
+            data.map((country) => {
               return {
                 flag: country.flag,
                 name: country.name,
                 population: country.population,
                 region: country.region,
-                capital: country.capital
+                capital: country.capital,
               };
             })
           );
         })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     }
   }, [setCountries, debouncedSearchText]);
 
@@ -57,18 +66,22 @@ const Countries = () => {
         searchText={searchText}
         setSearchText={setSearchText}
       />
-      <GridDiv>
-        {countries.map((country, index) => (
-          <Country
-            key={index}
-            flag={country.flag}
-            name={country.name}
-            population={country.population}
-            region={country.region}
-            capital={country.capital}
-          />
-        ))}
-      </GridDiv>
+      {errorMessage ? (
+        <p>No countries found</p>
+      ) : (
+        <GridDiv>
+          {countries.map((country, index) => (
+            <Country
+              key={index}
+              flag={country.flag}
+              name={country.name}
+              population={country.population}
+              region={country.region}
+              capital={country.capital}
+            />
+          ))}
+        </GridDiv>
+      )}
     </>
   );
 };

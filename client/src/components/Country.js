@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "@reach/router";
 
 const FlexGrid = styled.div`
   display: flex;
@@ -29,19 +30,21 @@ const FlexGrid = styled.div`
 `;
 const Country = ({ flag, name, region, population, capital }) => {
   return (
-    <FlexGrid className="card">
-      <img src={flag} alt={`Flag for ${name}`} width="300" height="150" />
-      <h2>{name}</h2>
-      <p>
-        <b>Population:</b> {population}
-      </p>
-      <p>
-        <b>Region:</b> {region}
-      </p>
-      <p>
-        <b>Capital:</b> {capital}
-      </p>
-    </FlexGrid>
+    <Link to={`/country/${name}`}>
+      <FlexGrid className="card">
+        <img src={flag} alt={`Flag for ${name}`} width="300" height="150" />
+        <h2>{name}</h2>
+        <p>
+          <b>Population:</b> {population}
+        </p>
+        <p>
+          <b>Region:</b> {region}
+        </p>
+        <p>
+          <b>Capital:</b> {capital}
+        </p>
+      </FlexGrid>
+    </Link>
   );
 };
 

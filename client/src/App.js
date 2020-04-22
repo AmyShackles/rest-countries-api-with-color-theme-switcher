@@ -4,7 +4,9 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./utils/theme.js";
 import { GlobalStyles } from "./utils/global.js";
 import { Header } from "./components/Header.js";
+import { Router } from "@reach/router";
 import "./App.css";
+import { CountryDetail } from "./components/CountryDetail.js";
 
 function App() {
   const [theme, setTheme] = React.useState("light");
@@ -21,7 +23,10 @@ function App() {
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} theme={theme} />
         <main role="main">
-          <Countries />
+          <Router>
+            <Countries path="/" />
+            <CountryDetail path="/country/:name"></CountryDetail>
+          </Router>
         </main>
       </>
     </ThemeProvider>

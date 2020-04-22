@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { countryCodes } from "../utils/countryCodes.js";
+import { BackButton } from "./BackButton.js";
 import { Link } from "@reach/router";
 
 const StyledCountryDetail = styled.div`
   display: flex;
   margin: 80px 10px 0 10px;
+  justify-content: space-between;
   & h1 {
     margin-top: 40px;
-    margin-left: 43px;
   }
   @media (max-width: 1250px) {
-    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -31,30 +31,33 @@ const StyledCountryDetail = styled.div`
   }
 `;
 const StyledColumns = styled.div`
-  display: flex;
-  margin-left: 42px;
-  margin-top: -34px;
-  justify-content: space-between;
+  @media (min-width: 1251px) {
+    width: 47%;
+  }
 `;
-const StyledSecondColumn = styled.div`
-  margin-top: 30px;
-`;
-const StyledButton = styled.button`
-  margin-top: 60px;
-  margin-left: 10px;
-  height: 40px;
-  width: 136px;
-  background-color: ${({ theme }) => theme.cards};
-  box-shadow: ${({ theme }) => `1px 1px 7px -1px  ${theme.inputField}`};
-  color: ${({ theme }) => theme.text};
-  border: none;
-`;
+const StyledSecondColumn = styled.div``;
 
 const StyledFirstColumn = styled.div`
-  margin: 33px 0;
   line-height: 16px;
 `;
+const StyledFlex = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1250px) {
+    flex-direction: column;
+  }
+`;
 
+const StyledCountryButtonWrapper = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  @media (max-width: 1250px) {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+`;
 const StyledCountryButton = styled(Link)`
   background-color: ${({ theme }) => theme.cards};
   box-shadow: ${({ theme }) => `1px 1px 7px -1px  ${theme.inputField}`};
@@ -62,7 +65,7 @@ const StyledCountryButton = styled(Link)`
   border: none;
   font-size: 14px;
   padding: 5px 25px;
-  margin-right: 5px;
+  margin: 5px 5px 0 0;
 `;
 const CountryDetail = (props) => {
   const [country, setCountry] = React.useState({});
@@ -104,13 +107,13 @@ const CountryDetail = (props) => {
 
   return (
     <>
-      <StyledButton>Back</StyledButton>
+      <BackButton goBack={() => props.navigate("/")} />
 
       <StyledCountryDetail>
         <img src={flag} alt={`Flag for ${name}`} width="500" height="360" />
-        <div>
+        <StyledColumns>
           <h1>{name}</h1>
-          <StyledColumns>
+          <StyledFlex>
             <StyledFirstColumn>
               <p>
                 <b>Native Name:</b> {nativeName}
@@ -147,28 +150,27 @@ const CountryDetail = (props) => {
                     .join(", ")}
               </p>
             </StyledSecondColumn>
-          </StyledColumns>
+          </StyledFlex>
           <div
             style={{
-              marginTop: "30px",
-              marginLeft: "42px",
+              marginTop: "60px",
             }}
           >
-            <p style={{ display: "flex", flexWrap: "wrap" }}>
+            <StyledCountryButtonWrapper>
               <span style={{ marginRight: "15px" }}>
                 <b>Border Countries:</b>
               </span>
               {borders &&
                 borders.map((country, index) => {
                   return (
-                    <StyledCountryButton to={`/country/${country}`}>
+                    <StyledCountryButton key={index} to={`/country/${country}`}>
                       {country}
                     </StyledCountryButton>
                   );
                 })}
-            </p>
+            </StyledCountryButtonWrapper>
           </div>
-        </div>
+        </StyledColumns>
       </StyledCountryDetail>
     </>
   );

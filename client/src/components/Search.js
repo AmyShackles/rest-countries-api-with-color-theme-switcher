@@ -6,6 +6,11 @@ const StyledSearch = styled.div`
   margin-left: 10px;
   width: 37%;
   position: relative;
+  @media (max-width: 1250px) {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
 `;
 
 const StyledSearchInput = styled.input`
@@ -15,7 +20,7 @@ const StyledSearchInput = styled.input`
   padding-left: 75px;
 `;
 const Search = ({ setCountries, searchText, setSearchText }) => {
-  const handleChange = event => {
+  const handleChange = (event) => {
     setSearchText(event.target.value);
   };
   return (

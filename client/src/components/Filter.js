@@ -19,7 +19,7 @@ const Filter = ({ countries, setCountries }) => {
     menu: (provided, state) => ({
       ...provided,
       marginTop: 0,
-      backgroundColor: applicationTheme.cards
+      backgroundColor: applicationTheme.cards,
     }),
     option: (provided, state) => ({
       ...provided,
@@ -33,13 +33,17 @@ const Filter = ({ countries, setCountries }) => {
           !state.isDisabled &&
           (state.isSelected
             ? applicationTheme.cards
-            : applicationTheme.inputValue)
-      }
+            : applicationTheme.inputValue),
+      },
     }),
     container: (provided, state) => ({
       ...provided,
       width: "200px",
-      marginRight: "10px"
+      marginRight: "10px",
+      "@media only screen and (max-width: 1250px)": {
+        ...provided,
+        width: "100%",
+      },
     }),
     control: (provided, state) => ({
       ...provided,
@@ -51,37 +55,37 @@ const Filter = ({ countries, setCountries }) => {
         : state.theme.colors.neutral20,
       boxShadow: state.isFocused ? "0 0 0 1px #BABABA" : null,
       "&:hover": {
-        borderColor: "#BABABA"
-      }
+        borderColor: "#BABABA",
+      },
     }),
     valueContainer: (provided, state) => ({
       ...provided,
       height: "60px",
-      paddingLeft: "20px"
-    })
+      paddingLeft: "20px",
+    }),
   };
   React.useEffect(() => {
     if (region !== "") {
       fetch(`https://restcountries.eu/rest/v2/region/${region}`)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           setCountries(
-            data.map(country => {
+            data.map((country) => {
               return {
                 flag: country.flag,
                 name: country.name,
                 population: country.population,
                 region: country.region,
-                capital: country.capital
+                capital: country.capital,
               };
             })
           );
         })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     }
   }, [region, setCountries]);
 
-  const handleChange = selectedOption => {
+  const handleChange = (selectedOption) => {
     setRegion(selectedOption.value);
   };
   return (

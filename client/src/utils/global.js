@@ -33,6 +33,9 @@ export const GlobalStyles = createGlobalStyle`
   svg line {
     stroke: ${({ theme }) => theme.text}
   }
+  svg polyline {
+    stroke: ${({ theme }) => theme.text}
+  }
   .card {
     background-color: ${({ theme }) => theme.cards};
   }
@@ -44,5 +47,9 @@ export const GlobalStyles = createGlobalStyle`
   }
   header button {
     background-color: ${({ theme }) => theme.toggleButton};
+  }
+  a {
+    color: ${({ theme }) => theme.text};
+    text-decoration: none;
   }
 `;

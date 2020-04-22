@@ -7,12 +7,15 @@ const StyledSearchFilter = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 45px;
+  @media (max-width: 1250px) {
+    flex-direction: column;
+  }
 `;
 const SearchFilter = ({
   countries,
   setCountries,
   searchText,
-  setSearchText
+  setSearchText,
 }) => {
   return (
     <StyledSearchFilter>

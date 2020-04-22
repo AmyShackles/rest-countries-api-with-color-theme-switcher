@@ -4,6 +4,12 @@ import { countryCodes } from "../utils/countryCodes.js";
 import { BackButton } from "./BackButton.js";
 import { Link } from "@reach/router";
 
+const StyledDetailWrapper = styled.div`
+  margin: 0 70px;
+  @media (max-width: 1250px) {
+    margin: auto;
+  }
+`;
 const StyledCountryDetail = styled.div`
   display: flex;
   margin: 80px 10px 0 10px;
@@ -105,7 +111,7 @@ const CountryDetail = (props) => {
   } = country;
 
   return (
-    <>
+    <StyledDetailWrapper>
       <BackButton goBack={() => props.navigate("/")} />
 
       <StyledCountryDetail>
@@ -171,7 +177,7 @@ const CountryDetail = (props) => {
           </div>
         </StyledColumns>
       </StyledCountryDetail>
-    </>
+    </StyledDetailWrapper>
   );
 };
 

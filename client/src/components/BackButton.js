@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ReactComponent as Back } from "./arrow-back-outline.svg";
 
 const StyledButton = styled.button`
-  margin-top: 80px;
+  margin-top: 60px;
   margin-left: 10px;
   height: 40px;
   width: 136px;
